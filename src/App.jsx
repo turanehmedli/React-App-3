@@ -2,6 +2,9 @@ import { Route, Routes } from "react-router"
 import Homepage from "./pages/Homepage"
 import ProductsDetail from "./pages/ProductsDetail"
 import { useTheme } from "./stores/themeStore"
+import NotFound from "./pages/NotFound"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 
 const App = () => {
   const {isDarkModeOn} = useTheme()
@@ -12,6 +15,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/details/:id" element={<ProductsDetail/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
   )
