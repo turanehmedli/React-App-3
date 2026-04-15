@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import NavBar from "../components/common/NavBar";
-import { Box, ChevronRight, Heart, Minus, Plus, Star, Truck } from "lucide-react";
+import { NavLink, useParams } from "react-router";
+import NavBar from "../common/NavBar";
+import {
+  Box,
+  ChevronRight,
+  Heart,
+  Minus,
+  Plus,
+  Star,
+  Truck,
+} from "lucide-react";
+import axios from "axios";
+import Reviews from "../common/Reviews";
+import { useBasket } from "../../stores/basketParse";
 
 const ProductsDetail = () => {
+  const { addToBasket } = useBasket();
   const { id } = useParams();
   const [productData, setProductData] = useState({});
   const [active, setActive] = useState(false);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(Number(productData.rating));
   const [count, setCount] = useState(1);
 
   const plus = () => {
@@ -19,45 +31,39 @@ const ProductsDetail = () => {
   };
 
   const fetchProductsId = async () => {
-    const res = await fetch(`https://dummyjson.com/products/${id}`);
+    const res = await axios.get(`https://dummyjson.com/products/${id}`);
 
-    if (res.ok) {
-      const data = await res.json();
-      setProductData(data);
-      console.log(data);
-    }
+    console.log(res.data);
+    setProductData(res.data);
   };
 
   useEffect(() => {
     fetchProductsId();
   }, []);
   return (
-    <div className="xl:w-[1240px] w-full h-screen flex flex-col justify-center items-center p-5">
-      <NavBar />
+    <div className="xl:w-[1240px] w-full  min-h-screen h-fit flex flex-col justify-center items-center">
       <div className="w-full h-full mt-10 p-4 flex flex-col">
         <div className="flex ">
           <p className="flex">
             <span className="text-zinc-400 flex">
-              Product Listing <ChevronRight />
+              <NavLink to="/">Product Listing</NavLink> <ChevronRight />
             </span>
             Dummy Product Page
           </p>
         </div>
 
-        <div className="w-full h-full md:flex-row flex-col flex justify-between gap-5 items-center my-5">
-          <div className="w-100 h-full flex gap-5 md:flex-col flex-row">
-            {productData.images
-              ?.slice(1)
-              .map((img, index) => (
+        <div className="w-full h-full lg:flex-row flex-col flex justify-between gap-5 lg:items-center my-5">
+          <div className="lg:w-100 h-fit flex lg:flex-col flex-row gap-5 lg:p-3">
+            {productData.images?.map((img,index) => (
                 <img
                   key={index}
                   src={img}
-                  className="w-full h-full object-cover cursor-pointer bg-[#a6a6a6] rounded-md"
+                  className="lg:w-full lg:h-full size-57 object-cover cursor-pointer bg-[#a6a6a6] rounded-md"
                 ></img>
               )) || "img Not found"}
           </div>
 
-          <div className="w-full h-full bg-[#a6a6a6] rounded-md">
+          <div className="w-full  bg-[#a6a6a6] rounded-md">
             <img
               className="object-cover w-full h-full"
               src={productData.images?.[0] || "No Image found"}
@@ -82,8 +88,14 @@ const ProductsDetail = () => {
                   <Star
                     className="cursor-pointer text-zinc-400"
                     key={star}
-                    onClick={() => setRating(star)}
-                    fill={star <= rating ? "yellow" : "gray"}
+                    onClick={() =>
+                      setRating((prev) => (prev === star ? star - 1 : star))
+                    }
+                    fill={
+                      star <= Math.round(productData.rating || 0)
+                        ? "yellow"
+                        : "gray"
+                    }
                   />
                 ))}
               </div>
@@ -98,9 +110,17 @@ const ProductsDetail = () => {
                   <p className="text-2xl">{count}</p>
                   <Plus onClick={plus} />
                 </div>
-                <div className="w-full py-2 hover:bg-black hover:text-white border transition-all duration-300 flex justify-center items-center rounded-full text-xl cursor-pointer">
+                <button
+                  onClick={() =>
+                    addToBasket({
+                      ...productData,
+                      quantity: count,
+                    })
+                  }
+                  className="w-full py-2 hover:bg-black hover:text-white border transition-all duration-300 flex justify-center items-center rounded-full text-xl cursor-pointer"
+                >
                   Add to Cart
-                </div>
+                </button>
               </div>
               <button className="w-full border rounded-full py-2 text-xl font-semibold hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
                 Buy Now
@@ -108,16 +128,26 @@ const ProductsDetail = () => {
 
               <div className="flex flex-col gap-5 mt-10 text-zinc-400">
                 <div className="flex gap-2  items-center">
-                  <p><Truck className="size-8 "/></p> Free worldwide shipping on all orders over $100
+                  <p>
+                    <Truck className="size-8 " />
+                  </p>{" "}
+                  Free worldwide shipping on all orders over $100
                 </div>
 
                 <div className="flex gap-2  items-center">
-                  <p><Box className="size-8 "/></p>Delivers in: 3-7 Working Days Shipping & Return
+                  <p>
+                    <Box className="size-8 " />
+                  </p>
+                  Delivers in: 3-7 Working Days Shipping & Return
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="w-full flex flex-col justify-center items-center">
+        <Reviews item={productData} />
       </div>
     </div>
   );

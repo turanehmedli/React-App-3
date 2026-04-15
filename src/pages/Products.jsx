@@ -1,25 +1,23 @@
 import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const Products = () => {
   const navigator = useNavigate()
   const [formData, setFormdata] = useState([]);
   const renderData = async () => {
     try {
-      const res = await fetch("https://dummyjson.com/products");
+      const res = await axios.get("https://dummyjson.com/products");
+      console.log(res.data)
+      setFormdata(res.data.products)
 
-      if (res.ok) {
-        const data = await res.json();
-        console.log(data);
-        setFormdata(data.products);
-      }
-    } catch (error) {
       console.error(error);
+    } catch (error) {
     }
   };
-
   useEffect(() => {
+
     renderData();
   }, []);
   return (
@@ -44,6 +42,7 @@ const Products = () => {
       ))}
     </>
   );
+
 };
 
 export default Products;

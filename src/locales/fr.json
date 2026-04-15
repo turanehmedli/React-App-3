@@ -1,0 +1,18 @@
+{
+  "home": "Accueil",
+  "categories": "Catégories",
+  "contactUs": "Contactez-nous",
+  "blog": "Blog",
+  "productCollection": "Notre collection de produits",
+  "searchPlaceholder": "Rechercher un article",
+  "showingItems": "Affichage de {{start}}–{{end}} sur {{total}} articles",
+  "productName": "Lit double et tables de chevet",
+  "oldPrice": "$230.00",
+  "newPrice": "$200.00",
+  "loadMore": "Charger plus",
+  "newsletterTitle": "Abonnez-vous pour rester informé des réductions",
+  "emailPlaceholder": "email@email.com",
+  "products": "Produits",
+  "legalPages": "Pages légales",
+  "copyright": "Droits d'auteur © 2023 Renew Bariatrics, Inc"
+}

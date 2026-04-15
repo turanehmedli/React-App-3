@@ -1,0 +1,18 @@
+{
+  "home": "Startseite",
+  "categories": "Kategorien",
+  "contactUs": "Kontakt",
+  "blog": "Blog",
+  "productCollection": "Unsere Produktkollektion",
+  "searchPlaceholder": "Produkt suchen",
+  "showingItems": "Anzeige von {{start}}–{{end}} von {{total}} Artikeln",
+  "productName": "Doppelbett & Nachttische",
+  "oldPrice": "$230.00",
+  "newPrice": "$200.00",
+  "loadMore": "Mehr laden",
+  "newsletterTitle": "Abonnieren Sie unseren Newsletter für Rabatte",
+  "emailPlaceholder": "person@email.com",
+  "products": "Produkte",
+  "legalPages": "Rechtliche Seiten",
+  "copyright": "Urheberrecht © 2023 Renew Bariatrics, Inc"
+}

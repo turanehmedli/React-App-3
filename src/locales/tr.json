@@ -1,0 +1,18 @@
+{
+  "home": "Ana Sayfa",
+  "categories": "Kategoriler",
+  "contactUs": "İletişim",
+  "blog": "Blog",
+  "productCollection": "Ürün Koleksiyonumuz",
+  "searchPlaceholder": "Ürün ara",
+  "showingItems": "{{start}}–{{end}} / {{total}} ürün gösteriliyor",
+  "productName": "Çift kişilik yatak ve komodinler",
+  "oldPrice": "$230.00",
+  "newPrice": "$200.00",
+  "loadMore": "Daha fazla yükle",
+  "newsletterTitle": "İndirimlerden haberdar olmak için abone olun",
+  "emailPlaceholder": "email@email.com",
+  "products": "Ürünler",
+  "legalPages": "Yasal Sayfalar",
+  "copyright": "Telif hakkı © 2023 Renew Bariatrics, Inc"
+}

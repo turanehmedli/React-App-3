@@ -1,0 +1,18 @@
+{
+  "home": "Inicio",
+  "categories": "Categorías",
+  "contactUs": "Contáctanos",
+  "blog": "Blog",
+  "productCollection": "Nuestra colección de productos",
+  "searchPlaceholder": "Buscar un artículo",
+  "showingItems": "Mostrando {{start}}–{{end}} de {{total}} artículos",
+  "productName": "Cama doble y mesitas",
+  "oldPrice": "$230.00",
+  "newPrice": "$200.00",
+  "loadMore": "Cargar más",
+  "newsletterTitle": "Suscríbete para estar al día con los descuentos",
+  "emailPlaceholder": "correo@email.com",
+  "products": "Productos",
+  "legalPages": "Páginas legales",
+  "copyright": "Derechos reservados © 2023 Renew Bariatrics, Inc"
+}
