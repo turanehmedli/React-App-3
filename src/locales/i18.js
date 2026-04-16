@@ -10,13 +10,13 @@ import es from './es.json'
 import { useLang } from "../stores/langStore";
 
 export const language = [
-  { title: "English", value: "en", flag: "" },
-  { title: "Russian", value: "ru", flag: "🇷🇺" },
-  { title: "Azerbaijani", value: "az", flag: "🇦🇿" },
-  { title: "German", value: "de", flag: "🇩🇪" },
-  { title: "French", value: "fr", flag: "🇫🇷" },
-  { title: "Spanish", value: "es", flag: "🇪🇸" },
-  { title: "Turkish", value: "tr", flag: "🇹🇷" }
+  { title: "English", value: "en"},
+  { title: "Russian", value: "ru"},
+  { title: "Azerbaijani", value: "az"},
+  { title: "German", value: "de" },
+  { title: "French", value: "fr"},
+  { title: "Spanish", value: "es"},
+  { title: "Turkish", value: "tr"}
 ];
 
 i18n
@@ -46,7 +46,7 @@ i18n
         translation: es
       },
     },
-    lng: useLang.getState().language, 
+    lng: useLang.getState().langua, 
     fallbackLng: "en",
 
     interpolation: {

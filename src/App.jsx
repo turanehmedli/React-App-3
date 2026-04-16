@@ -1,6 +1,5 @@
 import "./locales/i18"
 import { Route, Routes } from "react-router";
-import Homepage from "./pages/Homepage";
 import ProductsDetail from "./components/home/ProductsDetail";
 import { useTheme } from "./stores/themeStore";
 import NotFound from "./pages/NotFound";
@@ -11,6 +10,8 @@ import NavBar from "./components/common/NavBar";
 import Footer from "./components/common/Footer";
 import Basket from "./pages/Basket";
 import { useTranslation } from "react-i18next";
+import HomePage from "./components/home/HomePage";
+import ProductPage from "./pages/ProductPage";
 
 
 
@@ -24,7 +25,8 @@ const App = () => {
     >
       <NavBar />
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/Products" element={<ProductPage />} />
         <Route path="/details/:id" element={<ProductsDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

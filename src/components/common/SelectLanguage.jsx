@@ -12,9 +12,9 @@ const SelectLanguage = () => {
     }
 
   return (
-    <select value={langua} onChange={handleLanguageC} className="border p-3 rounded-2xl py-4 text-lg font-bold ease-in-out duration-300 border-zinc-400 hover:bg-zinc-400">
+    <select value={langua} onChange={handleLanguageC} className="border  rounded-2xl py-2 px-2 text-md font-bold ease-in-out duration-300 border-zinc-400 hover:bg-zinc-400">
         {
-            language.map(lang => <option value={lang.value}>{lang.title}</option>)
+            language.map((lang, index )=> <option key={index} value={lang.value}>{lang.title}</option>)
         }
     </select>
   )

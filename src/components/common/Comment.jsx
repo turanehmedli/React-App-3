@@ -13,7 +13,18 @@ const Comment = ({ item }) => {
           <div className="w-full flex justify-between items-center">
             <h2 className="text-lg font-semibold">{items.reviewerName}</h2>
 
-            <p>{items.rating}</p>
+             {
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        className="cursor-pointer text-zinc-400"
+                        key={star}
+                        onClick={() =>  setRating(prev => prev === star ? star -1 : star)}
+                         fill={star <= items.rating ? "yellow" : "lightgray"}
+                      />
+                    ))}
+                  </div>
+                }
           </div>
           <h2 className="text-zinc-400">{items.comment}</h2>
         </div>

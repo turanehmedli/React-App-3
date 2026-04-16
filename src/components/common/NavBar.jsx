@@ -47,15 +47,19 @@ const NavBar = () => {
         <p className={`${seen? "border-b py-5 px-5 border-zinc-300 ease-in-out duration-300 rounded-2xl w-full hover:bg-zinc-300":""}`}>Blog</p>
       </div>
 
-      <SelectLanguage/>
+      
 
       <div className="flex sm:hidden relative">
+        
         <Menu onClick={()=>{
           setSeen(prev=> !prev)
         }} className="z-20 hover:border-2 size-10 p-1  rounded-lg text-xl "/> 
       </div>
 
-      <div className="sm:flex gap-5 hidden ">
+      <div className="sm:flex gap-5 hidden items-center">
+        <div className="hidden sm:flex">
+        <SelectLanguage/>
+      </div>
         <div className="sm:flex items-center hidden gap-2">
           <button
             onClick={toggleDarkMode}
